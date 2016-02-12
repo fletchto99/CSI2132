@@ -1,11 +1,6 @@
 /*
- * Independent tables
+ * Data tables
  */
-
-CREATE TABLE Manufacturers(
-  Manufacturer_ID SERIAL NOT NULL PRIMARY KEY,
-  Name VARCHAR(32) NOT NULL
-);
 
 CREATE TABLE Staff(
   Staff_ID SERIAL NOT NULL PRIMARY KEY,
@@ -34,7 +29,8 @@ CREATE TABLE Branches(
 
 CREATE TABLE Scooters(
   Scooter_ID SERIAL NOT NULL PRIMARY KEY,
-  Make_ID INT NOT NULL REFERENCES Manufacturers(Manufacturer_ID),
+  Model VARCHAR(255),
+  Make VARCHAR(255),
   Year DATE NOT NULL,
   Rental_Price MONEY NOT NULL,
   Main_Color VARCHAR(32) NOT NULL,
