@@ -1,0 +1,108 @@
+\documentclass[fleqn, 12pt]{article}
+
+% packages %
+\usepackage[headheight=110pt,margin=1in]{geometry} % page margins %
+\usepackage{mathtools, amssymb} % math %
+\usepackage{tabularx, multirow} % tables %
+\usepackage{listings} % code %
+\usepackage{graphicx} % graphics %
+\usepackage{enumerate} % lists %
+\usepackage{adjustbox} % images %
+\usepackage[T1]{fontenc} % fonts %
+\usepackage[protrusion=true,expansion=true]{microtype} % font clarity %
+\usepackage{fancyhdr} % headers and footers %
+\usepackage{lastpage} % reference page numbers %
+
+% Document details %
+\newcommand{\name}{Matt Langlois}
+\newcommand{\studentNumber}{7731813}
+\newcommand{\semester}{Winter 2016}
+\newcommand{\assignemntNumber}{1}
+\newcommand{\dueDate}{February 12}
+\newcommand{\courseCode}{CSI2136}
+
+% Center image and diagrams %
+\adjustboxset*{center}
+
+% Prevent paragraph indents, this isn't an English assignment! %
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+
+% fix padding on code indents %
+\lstset{
+    xleftmargin=-25pt,
+    frame=single,
+    framexleftmargin=-25pt
+}
+
+% Define ceiling and floor functions
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% Create set compliment command %
+\newcommand{\setcomp}[1]{{#1}^{\mathsf{c}}}
+
+% Create logic command aliases %
+\newcommand{\limplies}{\rightarrow}
+\newcommand{\liff}{\leftrightarrow}
+
+% Document header %
+\newcommand{\makeheader}{
+    \noindent
+    \courseCode \hfill \semester\\
+    Computer Science \hfill University of Ottawa
+    \begin{center}
+        \textbf{Assignment \#\assignemntNumber}\\
+        \name \hspace{1pt} - \studentNumber\\
+        \dueDate\\ 
+    \end{center}
+    \vspace{6pt}
+    \hrule
+    \vspace{6pt}
+}
+
+% first page header & footer %
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \renewcommand{\footrulewidth}{0.1mm}
+  \fancyfoot[R]{Assignment \assignemntNumber}
+  \fancyfoot[C]{\thepage \hspace{1pt} of \pageref{LastPage}}
+  \fancyfoot[L]{\courseCode}
+  \renewcommand{\headrulewidth}{0mm}
+}  
+
+% Page header and footers %
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.1mm}
+\fancyfoot[R]{Assignment \assignemntNumber}
+\fancyfoot[C]{\thepage \hspace{1pt} of \pageref{LastPage}}
+\fancyfoot[L]{\courseCode}
+\fancyhead[L]{\name}
+\fancyhead[R]{\studentNumber}
+
+% Apply headers & footer page style %
+\pagestyle{fancy}
+
+\begin{document}
+
+% ignore fancy headers on this page and use document header %
+\thispagestyle{firstpage}
+\makeheader
+
+\section*{Question 1}
+
+\begin{enumerate}[1.]
+    \item
+        Uniform data administration is when all of the data is being monitored by one person, typically the Database Administrator. A DBA provides access control and data monitoring. The database can be performance tuned so that queries will run faster and the data is allocated properly on the disks this way if one cluster fails there is no data loss or downtime. All of these tasks performed by the Database Administration contribute to uniform data administration.
+    \item 
+        Data independence keeps the application separate from the data. This way if the application is hacked, this doesn't necessarily mean that data has been compromised. Not only does it provide security but it also enables multiple applications to access the data, as it can act as a central location for applications. For example if there is a web app and a mobile app, they can both access the database.
+    \item
+        Data integrity ensures that the data entered meets the requirements of the application. It prevents redundant data from being entered. For example the camper primary key is the CName. Therefore the same person cannot be entered twice because the primary key will prevent it. This prevents unnecessary data from being entered into the database.
+    \item
+        Concurrent access enables multi-way access to the database. Concurrent access is crucial to ensure all users connected are able to have a smooth experience. For example if 2 campers are registering at the same time, then both of their details should be entered without any delays in the application. A DBMS enables multiple connections
+    \item
+        Data security ensures that only the required information is accessed and all other information is hidden from the results set. For example if you are looking for a camper's email, and you don't require the fee or shirt size then the database can be queried to return only the email address. Effectively hiding the non-required information from being accessible. This is further enforced through the concept of views where a view ensures only the required information is accessible and all other information cannot be queried.
+\end{enumerate}
+
+\end{document}
