@@ -100,9 +100,13 @@
     \item
         Data integrity ensures that the data entered meets the requirements of the application. It prevents redundant data from being entered. For example the camper primary key is the CName. Therefore the same person cannot be entered twice because the primary key will prevent it. This prevents unnecessary data from being entered into the database.
     \item
-        Concurrent access enables multi-way access to the database. Concurrent access is crucial to ensure all users connected are able to have a smooth experience. For example if 2 campers are registering at the same time, then both of their details should be entered without any delays in the application. A DBMS enables multiple connections
+        Concurrent access enables multi-way access to the database. Concurrent access is crucial to ensure all users connected are able to have a smooth experience. For example if 2 campers are registering at the same time, then both of their details should be entered without any delays in the application. A DBMS enables multiple connections which would prevent the issue of one person locking another person out of the system or causing their session to freeze.
     \item
         Data security ensures that only the required information is accessed and all other information is hidden from the results set. For example if you are looking for a camper's email, and you don't require the fee or shirt size then the database can be queried to return only the email address. Effectively hiding the non-required information from being accessible. This is further enforced through the concept of views where a view ensures only the required information is accessible and all other information cannot be queried.
 \end{enumerate}
+
+\section*{Question 2}
+
+\adjincludegraphics[width=1\textwidth]{diagram.pdf}
 
 \end{document}
