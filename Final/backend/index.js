@@ -17,8 +17,12 @@ database.query('SET search_path=sailors');
 
 app.get('/sailors/:sailor_id', function(request, response) {
     database.query("SELECT * FROM sailors WHERE sid = $1", [request.params.sailor_id], function(error, result) {
-        if (!error) {
-            response.json(result.rows[0]);
+        if (!error && result.rows.length > 0) {
+            response.json(result.rows[0]).end();
+        } else {
+            response.status(400).json({
+                error: 'No results!'
+            });
         }
     });
 });
